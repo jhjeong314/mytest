@@ -8,8 +8,12 @@ def draw_ast(ast: Node, verbose=False):
   plt.rcParams["mathtext.fontset"] = "cm" 
     # cm = computer modern by Donald Knuth
   plt.rcParams["figure.dpi"] = 300 # default 100
-  plt.rcParams["text.usetex"] = True 
+  try:
+    plt.rcParams["text.usetex"] = True 
     # without this, some LaTeX commands do not work
+  except:
+    # for Google Colab, which has somewhat limited capabilities when it comes to handling LaTeX.
+    pass
   fig, ax = plt.subplots(1, 1, figsize=(3, 1.5))
   ax.set(aspect='equal')
   ax.set_xlim(0, 3) 

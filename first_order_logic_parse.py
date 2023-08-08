@@ -744,7 +744,10 @@ class Node:
     return the_str
 
   def draw_tree(self, verbose=False):
-    from draw_tree import draw_ast
+    url = 'https://raw.githubusercontent.com/jhjeong314/mytest/main'
+    import httpimport
+    with httpimport.remote_repo(url):
+      from draw_tree import draw_ast
     draw_ast(self, verbose)
 
   #region syntactic manipulations
